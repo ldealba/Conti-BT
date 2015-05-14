@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "Declarations.h"
 
-@interface Central : UIViewController
+@interface Central : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate>
+
+@property (strong, nonatomic) CBCentralManager      *centralManager;
+@property (strong, nonatomic) CBPeripheral          *discoveredPeripheral;
+@property (strong, nonatomic) NSMutableData         *data;
+@property (strong, nonatomic) IBOutlet UITextField *txtBT;
 
 //Actions
 - (IBAction)btnBackPressed:(id)sender;
